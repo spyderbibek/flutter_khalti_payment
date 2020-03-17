@@ -97,7 +97,6 @@ public class FlutterkhaltipaymentPlugin implements MethodCallHandler, FlutterPlu
 
   @Override
   public void onReattachedToActivityForConfigChanges(ActivityPluginBinding binding) {
-    mContext= binding.getActivity();
   }
 
   @Override

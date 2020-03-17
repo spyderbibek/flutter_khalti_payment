@@ -27,8 +27,8 @@ class _MyAppState extends State<MyApp> {
       },
     ).initPayment(
       onSuccess: (data) {
-        print("success");
-        print(data);
+        print("Token Got: ${data["token"].toString()}");
+        print("Success got: ${data.toString()}");
       },
       onError: (error) {
         print("error");
