@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:flutterkhaltipayment/flutterkhaltipayment.dart';
 
 void main() => runApp(MyApp());
@@ -22,8 +19,8 @@ class _MyAppState extends State<MyApp> {
     FlutterKhaltiPayment(
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
       merchantKey: "test_public_key_3793047616c14a108d09ddbaa551333f",
-      productId: "1233",
-      productName: "Test 2",
+      productId: "0123",
+      productName: "Product Name",
       amount: 100,
       customData: {
         "studentId": "123456",
