@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   _payViaKhalti() {
     FlutterKhaltiPayment(
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
-      merchantKey: "test_public_key_3793047616c14a108d09ddbaa551333f",
+      merchantKey: "YOUR MERCHANT KEY HERE",
       productId: "0123",
       productName: "Product Name",
       amount: 100,

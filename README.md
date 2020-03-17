@@ -10,9 +10,8 @@ An unofficial Khalti SDK that can be used by Khalti merchants to integrate Khalt
 
 ```yaml
 # add this line to your dependencies
-flutterkhaltipayment:
-    git:
-      url: https://github.com/spyderbibek/flutter_khalti_payment.git
+dependencies:
+  flutterkhaltipayment: ^0.2.0
 ```
 
 ```dart
