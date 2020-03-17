@@ -1,4 +1,5 @@
 # flutterkhaltipayment
+[![flutterkhaltipayment pub package](https://img.shields.io/badge/pub-v0.4.0-brightgreen)(https://pub.dev/packages/flutterkhaltipayment)
 
 An unofficial Khalti SDK that can be used by Khalti merchants to integrate Khalti payment on their flutter apps.
 
