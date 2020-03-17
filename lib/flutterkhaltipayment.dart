@@ -27,7 +27,7 @@ class FlutterKhaltiPayment {
         this._customData=customData;
 
   initPayment({Function onSuccess, Function onError}){
-    _channel.invokeMethod("khaltiPayment", {
+    _channel.invokeMethod("khaltiPaymentStart", {
       "merchantKey": _merchantKey,
       "productId": _productId,
       "productName": _productName,

@@ -1,11 +1,12 @@
 name: flutterkhaltipayment
 description: An unofficial Khalti SDK that can be used by Khalti merchants to integrate Khalti payment on their flutter apps.
-version: 0.2.0
+version: 0.3.0
 author: BKSAPPS
 homepage: https://github.com/spyderbibek/flutter_khalti_payment
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
+  flutter: ">=1.10.0 <2.0.0"
 
 dependencies:
   flutter:
@@ -13,5 +14,7 @@ dependencies:
 
 flutter:
   plugin:
-    androidPackage: com.bksapps.flutterkhaltipayment
-    pluginClass: FlutterkhaltipaymentPlugin
+    platforms:
+      android:
+        package: com.bksapps.flutterkhaltipayment
+        pluginClass: FlutterkhaltipaymentPlugin

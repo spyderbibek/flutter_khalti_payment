@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
       merchantKey: "YOUR MERCHANT KEY HERE",
       productId: "0123",
       productName: "Product Name",
-      amount: 100,
+      amount: 1000,
       customData: {
         "studentId": "123456",
       },
