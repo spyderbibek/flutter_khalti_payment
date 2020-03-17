@@ -49,10 +49,7 @@ public class FlutterkhaltipaymentPlugin implements MethodCallHandler, FlutterPlu
   }
 
   private void initKhaltiPayment(MethodCall paymentData){
-    Map<String, Object> customData= new HashMap<>();
-    if(paymentData.argument("customData")!=null){
-      customData.putAll(paymentData.argument("customData"));
-    }
+    Map<String, Object> customData = new HashMap<>(paymentData.argument("customData"));
 
     String productId=paymentData.argument("productId").toString();
     String merchantKey=paymentData.argument("merchantKey").toString();
