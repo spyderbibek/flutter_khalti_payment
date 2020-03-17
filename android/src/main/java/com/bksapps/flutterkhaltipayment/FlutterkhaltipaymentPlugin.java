@@ -49,13 +49,14 @@ public class FlutterkhaltipaymentPlugin implements MethodCallHandler, FlutterPlu
   }
 
   private void initKhaltiPayment(MethodCall paymentData){
-    Map<String, Object> customData = new HashMap<>(paymentData.argument("customData"));
+    Map<String, Object> map = new HashMap<>();
 
     String productId=paymentData.argument("productId").toString();
     String merchantKey=paymentData.argument("merchantKey").toString();
     String productName=paymentData.argument("productName").toString();
     double amount=paymentData.argument("amount");
-    Log.d(TAG, "initKhaltiPayment: "+ productId+" "+ merchantKey+" "+ productName+" "+ amount);
+    map.put("productId", productId);
+    map.put("productName", productName);
 
     Config.Builder builder = new Config.Builder(merchantKey, productId, productName, (long)amount, new OnCheckOutListener() {
       @Override
@@ -71,10 +72,8 @@ public class FlutterkhaltipaymentPlugin implements MethodCallHandler, FlutterPlu
         errorMessage.put("message",errorMap.toString());
         channel.invokeMethod("khaltiPaymentError", errorMessage);
       }
-    });
-    if(!customData.isEmpty()){
-      builder.additionalData(customData);
-    }
+    }).additionalData(map);
+
     KhaltiCheckOut khaltiCheckOut = new KhaltiCheckOut(mContext, builder.build());
     mContext.runOnUiThread(new Runnable() {
       public void run() {

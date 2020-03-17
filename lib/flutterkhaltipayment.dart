@@ -7,7 +7,6 @@ class FlutterKhaltiPayment {
       const MethodChannel('bksapps/flutterkhaltipayment');
   String _merchantKey, _productId, _productName, _productUrl, _urlSchemeIOS;
   double _amount;
-  Map<String, String> _customData;
 
 
   FlutterKhaltiPayment({
@@ -17,14 +16,13 @@ class FlutterKhaltiPayment {
     String productUrl="",
     @required double amount,
     @required String urlSchemeIOS,
-    Map<String, String> customData= const {}
+
   }):this._merchantKey=merchantKey,
         this._productId=productId,
         this._productName=productName,
         this._productUrl=productUrl,
         this._amount=amount,
-        this._urlSchemeIOS = urlSchemeIOS,
-        this._customData=customData;
+        this._urlSchemeIOS = urlSchemeIOS;
 
   initPayment({Function onSuccess, Function onError}){
     _channel.invokeMethod("khaltiPaymentStart", {
@@ -34,7 +32,6 @@ class FlutterKhaltiPayment {
       "productUrl": _productUrl,
       "urlSchemeIOS": _urlSchemeIOS,
       "amount": _amount,
-      "customData": _customData,
     });
     _listenToResponse(onSuccess, onError);
   }

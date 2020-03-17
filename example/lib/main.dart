@@ -18,13 +18,10 @@ class _MyAppState extends State<MyApp> {
   _payViaKhalti() {
     FlutterKhaltiPayment(
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
-      merchantKey: "YOUR MERCHANT KEY HERE",
+      merchantKey: "test_public_key_3793047616c14a108d09ddbaa551333f",
       productId: "0123",
       productName: "Product Name",
       amount: 1000,
-      customData: {
-        "studentId": "123456",
-      },
     ).initPayment(
       onSuccess: (data) {
         print("Token Got: ${data["token"].toString()}");
