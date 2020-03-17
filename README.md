@@ -11,7 +11,7 @@ An unofficial Khalti SDK that can be used by Khalti merchants to integrate Khalt
 ```yaml
 # add this line to your dependencies
 dependencies:
-  flutterkhaltipayment: ^0.2.0
+  flutterkhaltipayment: ^0.4.0
 ```
 
 ```dart
@@ -22,28 +22,36 @@ import 'package:flutterkhaltipayment/flutterkhaltipayment.dart';
     FlutterKhaltiPayment(
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
       merchantKey: "YOUR MERCHANT KEY HERE",
-      productId: "012",
+      productId: "0123",
       productName: "Product Name",
       amount: 1000,
-      customData: {
-        "extra data": "extra data",
-      },
+      enableEBanking: false,
+      enableIPS: false,
+      enableMobileBanking: false,
+      enableSCT: false,
+      productUrl: "http://www.example.com/"
     ).initPayment(
       onSuccess: (data) {
-        print(data);
+        print("Token Got: ${data["token"].toString()}");
+        print("Success got: ${data.toString()}");
       },
       onError: (error) {
+        print("error");
         print(error);
       },
     );
 ```
 
-| property        | description                                                        |
-| --------------- | ------------------------------------------------------------------ |
-| merchantKey     | String (Not Null)(required)                                        |
-| productId       | String (Not Null) (required)                                       |
-| productName     | String (Not Null) (required)                                       |
-| amount          | double (Not Null) (required)                                       |
-| customData      | Map<String, String> (Not Null) (required)                          |
+| property           | description                                              |
+| -------------------|----------------------------------------------------------|
+| merchantKey        | String (Not Null)(required)                              |
+| productId          | String (Not Null) (required)                             |
+| productName        | String (Not Null) (required)                             |
+| amount             | double (Not Null) (required)                             |
+| enableEBanking     | boolean (optional)                                       |
+| enableIPS          | boolean (optional)                                       |
+| enableMobileBanking| boolean (optional)                                       |
+| enableSCT          | boolean (optional)                                       |
+| productUrl         | String (Nullable) (optional)                             |
 
 ## If you need any features suggest

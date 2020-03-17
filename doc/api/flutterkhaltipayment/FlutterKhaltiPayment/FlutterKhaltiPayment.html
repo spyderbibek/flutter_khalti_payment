@@ -87,7 +87,10 @@
 <li><span class="parameter" id="-param-productUrl"><span class="type-annotation">String</span> <span class="parameter-name">productUrl</span>: <span class="default-value">""</span>, </span></li>
 <li><span class="parameter" id="-param-amount"><span>@required</span> <span class="type-annotation">double</span> <span class="parameter-name">amount</span>, </span></li>
 <li><span class="parameter" id="-param-urlSchemeIOS"><span>@required</span> <span class="type-annotation">String</span> <span class="parameter-name">urlSchemeIOS</span>, </span></li>
-<li><span class="parameter" id="-param-customData"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">customData</span>: <span class="default-value">const {}</span>}</span></li>
+<li><span class="parameter" id="-param-enableEBanking"><span class="type-annotation">bool</span> <span class="parameter-name">enableEBanking</span>: <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="-param-enableMobileBanking"><span class="type-annotation">bool</span> <span class="parameter-name">enableMobileBanking</span>: <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="-param-enableIPS"><span class="type-annotation">bool</span> <span class="parameter-name">enableIPS</span>: <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="-param-enableSCT"><span class="type-annotation">bool</span> <span class="parameter-name">enableSCT</span>: <span class="default-value">false</span>}</span></li>
 </ol>)
     </section>
 
@@ -101,14 +104,21 @@
   String productUrl=&quot;&quot;,
   @required double amount,
   @required String urlSchemeIOS,
-  Map&lt;String, String&gt; customData= const {}
+  bool enableEBanking=false,
+  bool enableMobileBanking=false,
+  bool enableIPS=false,
+  bool enableSCT=false
+
 }):this._merchantKey=merchantKey,
       this._productId=productId,
       this._productName=productName,
       this._productUrl=productUrl,
       this._amount=amount,
       this._urlSchemeIOS = urlSchemeIOS,
-      this._customData=customData;</code></pre>
+      this._enableEBanking = enableEBanking,
+      this._enableMobileBanking = enableMobileBanking,
+      this._enableIPS = enableIPS,
+      this._enableSCT=enableSCT;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -121,7 +131,7 @@
 <footer>
   <span class="no-break">
     flutterkhaltipayment
-      0.1.0
+      0.4.0
   </span>
 
   <!-- footer-text placeholder -->

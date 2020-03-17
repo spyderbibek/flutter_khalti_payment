@@ -49,6 +49,10 @@
     <ol>
           <li class="section-title">Libraries</li>
           <li><a href="flutterkhaltipayment/flutterkhaltipayment-library.html">flutterkhaltipayment</a></li>
+          <li class="section-title">Dart</li>
+          <li><a href="dart-ui/dart-ui-library.html">dart:ui</a></li>
+          <li class="section-subtitle">Core</li>
+            <li class="section-subitem"><a href="dart-async/dart-async-library.html">dart:async</a></li>
     </ol>
   </div>
 
@@ -65,30 +69,33 @@
 </blockquote>
 <h2 id="usage">Usage</h2>
 <pre class="language-yaml"><code class="language-yaml"># add this line to your dependencies
-flutterkhaltipayment:
-    git:
-      url: https://github.com/spyderbibek/flutter_khalti_payment.git
+dependencies:
+  flutterkhaltipayment: ^0.4.0
 </code></pre>
 <pre class="language-dart"><code class="language-dart">import 'package:flutterkhaltipayment/flutterkhaltipayment.dart';  
 </code></pre>
 <pre class="language-dart"><code class="language-dart">    FlutterKhaltiPayment(
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
       merchantKey: "YOUR MERCHANT KEY HERE",
-      productId: "012",
+      productId: "0123",
       productName: "Product Name",
       amount: 1000,
-      customData: {
-        "extra data": "extra data",
-      },
+      enableEBanking: false,
+      enableIPS: false,
+      enableMobileBanking: false,
+      enableSCT: false,
+      productUrl: "http://www.example.com/"
     ).initPayment(
       onSuccess: (data) {
-        print(data);
+        print("Token Got: ${data["token"].toString()}");
+        print("Success got: ${data.toString()}");
       },
       onError: (error) {
+        print("error");
         print(error);
       },
     );
-</code></pre><table><thead><tr><th>property</th><th>description</th></tr></thead><tbody><tr><td>merchantKey</td><td>String (Not Null)(required)</td></tr><tr><td>productId</td><td>String (Not Null) (required)</td></tr><tr><td>productName</td><td>String (Not Null) (required)</td></tr><tr><td>amount</td><td>double (Not Null) (required)</td></tr><tr><td>customData</td><td>Map&lt;String, String&gt; (Not Null) (required)</td></tr></tbody></table>
+</code></pre><table><thead><tr><th>property</th><th>description</th></tr></thead><tbody><tr><td>merchantKey</td><td>String (Not Null)(required)</td></tr><tr><td>productId</td><td>String (Not Null) (required)</td></tr><tr><td>productName</td><td>String (Not Null) (required)</td></tr><tr><td>amount</td><td>double (Not Null) (required)</td></tr><tr><td>enableEBanking</td><td>boolean (optional)</td></tr><tr><td>enableIPS</td><td>boolean (optional)</td></tr><tr><td>enableMobileBanking</td><td>boolean (optional)</td></tr><tr><td>enableSCT</td><td>boolean (optional)</td></tr><tr><td>productUrl</td><td>String (Nullable) (optional)</td></tr></tbody></table>
 <h2 id="if-you-need-any-features-suggest">If you need any features suggest</h2>
       </section>
       
@@ -103,6 +110,25 @@ flutterkhaltipayment:
             </dd>
           </dl>
         </section>
+        <section class="summary">
+            <h2>Dart</h2>
+          <dl>
+            <dt id="dart:ui">
+              <span class="name"><a href="dart-ui/dart-ui-library.html">dart:ui</a></span>             
+            </dt>
+            <dd>
+              Built-in types and core primitives for a Flutter application. <a href="dart-ui/dart-ui-library.html">[...]</a>
+            </dd>
+            <h3>Core</h3>
+              <dt id="dart:async">
+                <span class="name"><a href="dart-async/dart-async-library.html">dart:async</a></span>               
+              </dt>
+              <dd>
+                Support for asynchronous programming,
+with classes such as Future and Stream. <a href="dart-async/dart-async-library.html">[...]</a>
+              </dd>
+          </dl>
+        </section>
 
   </div> <!-- /.main-content -->
 
@@ -114,7 +140,7 @@ flutterkhaltipayment:
 <footer>
   <span class="no-break">
     flutterkhaltipayment
-      0.1.0
+      0.4.0
   </span>
 
   <!-- footer-text placeholder -->

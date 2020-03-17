@@ -54,6 +54,7 @@ public class FlutterkhaltipaymentPlugin implements MethodCallHandler, FlutterPlu
     String productId=paymentData.argument("productId").toString();
     String merchantKey=paymentData.argument("merchantKey").toString();
     String productName=paymentData.argument("productName").toString();
+    String productUrl=paymentData.argument("productUrl").toString();
     double amount=paymentData.argument("amount");
     map.put("productId", productId);
     map.put("productName", productName);
@@ -72,7 +73,21 @@ public class FlutterkhaltipaymentPlugin implements MethodCallHandler, FlutterPlu
         errorMessage.put("message",errorMap.toString());
         channel.invokeMethod("khaltiPaymentError", errorMessage);
       }
-    }).additionalData(map);
+    }).additionalData(map).paymentPreferences(new ArrayList<PaymentPreference>() {{
+      add(PaymentPreference.KHALTI);
+      if(paymentData.argument("enableEbanking").toString().equals("true")){
+        add(PaymentPreference.EBANKING);
+      }
+      if(paymentData.argument("enableMobileBanking").toString().equals("true")){
+        add(PaymentPreference.MOBILE_BANKING);
+      }
+      if(paymentData.argument("enableIPS").toString().equals("true")){
+        add(PaymentPreference.CONNECT_IPS);
+      }
+      if(paymentData.argument("enableSCT").toString().equals("true")){
+        add(PaymentPreference.SCT);
+      }
+    }}).productUrl(productUrl);
 
     KhaltiCheckOut khaltiCheckOut = new KhaltiCheckOut(mContext, builder.build());
     mContext.runOnUiThread(new Runnable() {

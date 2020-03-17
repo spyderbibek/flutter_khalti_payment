@@ -92,15 +92,19 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">initPayment({Function onSuccess, Function onError}){
-  _channel.invokeMethod(&quot;khaltiPayment&quot;, {
+  final Map&lt;String, dynamic&gt; params = &lt;String, dynamic&gt;{
     &quot;merchantKey&quot;: _merchantKey,
     &quot;productId&quot;: _productId,
     &quot;productName&quot;: _productName,
     &quot;productUrl&quot;: _productUrl,
     &quot;urlSchemeIOS&quot;: _urlSchemeIOS,
     &quot;amount&quot;: _amount,
-    &quot;customData&quot;: _customData,
-  });
+    &quot;enableEbanking&quot;: _enableEBanking,
+    &quot;enableMobileBanking&quot;: _enableMobileBanking,
+    &quot;enableIPS&quot;: _enableIPS,
+    &quot;enableSCT&quot;: _enableSCT,
+  };
+  _channel.invokeMethod(&quot;khaltiPaymentStart&quot;, params);
   _listenToResponse(onSuccess, onError);
 }</code></pre>
     </section>
@@ -115,7 +119,7 @@
 <footer>
   <span class="no-break">
     flutterkhaltipayment
-      0.1.0
+      0.4.0
   </span>
 
   <!-- footer-text placeholder -->

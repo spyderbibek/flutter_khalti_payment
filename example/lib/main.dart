@@ -9,19 +9,22 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-
-  @override
+   @override
   void initState() {
     super.initState();
   }
   _payViaKhalti() {
     FlutterKhaltiPayment(
       urlSchemeIOS: "KhaltiPayFlutterExampleScheme",
-      merchantKey: "test_public_key_3793047616c14a108d09ddbaa551333f",
+      merchantKey: "YOUR MERCHANT KEY HERE",
       productId: "0123",
       productName: "Product Name",
       amount: 1000,
+      enableEBanking: false,
+      enableIPS: false,
+      enableMobileBanking: false,
+      enableSCT: false,
+      productUrl: "http://www.example.com/"
     ).initPayment(
       onSuccess: (data) {
         print("Token Got: ${data["token"].toString()}");
